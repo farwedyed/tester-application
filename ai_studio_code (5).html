@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Human or AI - Tester Application</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #00c238; 
+            --primary-color-glow: rgba(0, 194, 56, 0.6);
+            --background-color: #000000;
+        }
+
+        /* --- Animation for the glowing title --- */
+        @keyframes pulse-glow {
+            0% {
+                text-shadow: 0 0 4px var(--primary-color-glow);
+            }
+            50% {
+                text-shadow: 0 0 14px var(--primary-color);
+            }
+            100% {
+                text-shadow: 0 0 4px var(--primary-color-glow);
+            }
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--primary-color);
+            font-family: 'Press Start 2P', cursive;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            /* Global text-shadow REMOVED from here */
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            padding: 20px;
+            border: 2px solid var(--primary-color);
+            box-shadow: 0 0 10px var(--primary-color-glow);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .logo {
+            width: 150px;
+            height: 150px;
+            image-rendering: pixelated;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin: 20px 0 10px 0;
+            /* --- Glow effect is now ONLY on the H1 title --- */
+            animation: pulse-glow 3s infinite ease-in-out;
+        }
+
+        .subtitle {
+            font-size: 1em;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea,
+        select {
+            background-color: #0A0A0A;
+            border: 2px solid var(--primary-color);
+            color: #39FF14;
+            padding: 15px;
+            width: 100%;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.8em;
+            box-sizing: border-box; 
+        }
+        
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            box-shadow: 0 0 6px var(--primary-color-glow);
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .radio-group label,
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            -webkit-appearance: none;
+            appearance: none;
+            background-color: transparent;
+            margin-right: 15px;
+            font: inherit;
+            color: var(--primary-color);
+            width: 1.25em;
+            height: 1.25em;
+            border: 2px solid var(--primary-color);
+            transform: translateY(-0.075em);
+            display: grid;
+            place-content: center;
+            cursor: pointer;
+        }
+
+        input[type="radio"]::before,
+        input[type="checkbox"]::before {
+            content: "";
+            width: 0.75em;
+            height: 0.75em;
+            transform: scale(0);
+            transition: 120ms transform ease-in-out;
+            box-shadow: inset 1em 1em var(--primary-color);
+        }
+
+        input[type="radio"]:checked::before,
+        input[type="checkbox"]:checked::before {
+            transform: scale(1);
+        }
+        
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: var(--background-color);
+            border: none;
+            padding: 15px 30px;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 1em;
+            cursor: pointer;
+            text-shadow: none;
+            transition: all 0.3s ease;
+            display: block;
+            width: 100%;
+            text-align: center;
+            margin-top: 20px; /* Added some space above the button */
+        }
+
+        .submit-btn:hover {
+            box-shadow: 0 0 10px var(--primary-color-glow);
+            background-color: #39FF14;
+            color: #000;
+        }
+
+        /* Mobile Compatibility */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.5em;
+            }
+            .subtitle {
+                font-size: 0.9em;
+            }
+            label, input, textarea, select {
+                font-size: 0.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <img src="https://media.discordapp.net/attachments/1071409136346079303/1412826873444175872/pixil-frame-0_1.png?ex=68b9b50f&is=68b8638f&hm=d33aba6dfb1dd1ee626b9624a78efa04e09c7b1699d8477ca2d2bbdaa936ab31&=&format=webp&quality=lossless&width=864&height=864" alt="Human or AI Logo" class="logo">
+            <h1>Human or AI</h1>
+            <p class="subtitle">TESTER APPLICATION</p>
+        </header>
+
+        <form action="#" method="POST"> <!-- Update form action to your backend endpoint -->
+            
+            <div class="form-group">
+                <label for="roblox-username">1. What is your Roblox username?</label>
+                <input type="text" id="roblox-username" name="roblox_username" required>
+            </div>
+
+            <div class="form-group">
+                <label for="discord-username">2. What is your Discord username? (e.g., user#1234)</label>
+                <input type="text" id="discord-username" name="discord_username" required>
+            </div>
+
+            <div class="form-group">
+                <label for="timezone">3. What is your timezone? (e.g., PST, EST, GMT+2)</label>
+                <input type="text" id="timezone" name="timezone" required>
+            </div>
+
+            <div class="form-group">
+                <label>4. Are you interested in joining the Discord server to gain the tester role there?</label>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="join_discord" value="yes" required> Yes, of course
+                    </label>
+                    <label>
+                        <input type="radio" name="join_discord" value="no"> No, thank you
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="active-times">5. What are the general times you are active?</label>
+                <textarea id="active-times" name="active_times" placeholder="e.g., Weekday evenings, weekends all day..." required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="hours-available">6. How many hours per week are you available to test?</label>
+                <select id="hours-available" name="hours_available" required>
+                    <option value="" disabled selected>Select an option...</option>
+                    <option value="1-5">1-5 hours</option>
+                    <option value="5-10">5-10 hours</option>
+                    <option value="10-15">10-15 hours</option>
+                    <option value="15+">15+ hours</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="testing-experience">7. Have you tested games before? If so, please briefly describe your experience.</label>
+                <textarea id="testing-experience" name="testing_experience" placeholder="Describe any alpha/beta testing, bug reporting, or QA experience you have. If none, write 'N/A'." required></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label>8. Why are you interested in testing "Human or AI"?</label>
+                <textarea id="why-interested" name="why_interested" placeholder="Let us know what excites you about this project!" required></textarea>
+            </div>
+
+            <div class="form-group checkbox-group">
+                 <label>
+                    <input type="checkbox" name="data_agreement" required> I understand that by applying for this role, I permit the development team to collect in-game chat and gameplay data for the sole purpose of improving the game.
+                </label>
+            </div>
+            
+            <div class="form-group checkbox-group">
+                <label>
+                    <input type="checkbox" name="age_agreement" required> I confirm that I am 13 years of age or older.
+                </label>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit Application</button>
+
+        </form>
+    </div>
+
+</body>
+</html>
