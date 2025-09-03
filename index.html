@@ -37,7 +37,6 @@
             min-height: 100vh;
             margin: 0;
             padding: 20px;
-            /* Global text-shadow REMOVED from here */
         }
 
         .container {
@@ -62,7 +61,6 @@
         h1 {
             font-size: 2em;
             margin: 20px 0 10px 0;
-            /* --- Glow effect is now ONLY on the H1 title --- */
             animation: pulse-glow 3s infinite ease-in-out;
         }
 
@@ -91,7 +89,7 @@
             color: #39FF14;
             padding: 15px;
             width: 100%;
-            font-family: 'Press Start 2P', cursive;
+            font-family: 'Press Start+ 2P', cursive;
             font-size: 0.8em;
             box-sizing: border-box; 
         }
@@ -162,7 +160,7 @@
             display: block;
             width: 100%;
             text-align: center;
-            margin-top: 20px; /* Added some space above the button */
+            margin-top: 20px;
         }
 
         .submit-btn:hover {
@@ -189,12 +187,13 @@
 
     <div class="container">
         <header>
-            <img src="https://media.discordapp.net/attachments/1071409136346079303/1412826873444175872/pixil-frame-0_1.png?ex=68b9b50f&is=68b8638f&hm=d33aba6dfb1dd1ee626b9624a78efa04e09c7b1699d8477ca2d2bbdaa936ab31&=&format=webp&quality=lossless&width=864&height=864" alt="Human or AI Logo" class="logo">
+            <img src="https://media.discordapp.net/attachments/1071409136346079303/1412826873444175872/pixil-frame-0_1.png?ex=68b9b5-0f&is=68b8638f&hm=d33aba6dfb1dd1ee626b9624a78efa04e09c7b1699d8477ca2d2bbdaa936ab31&=&format=webp&quality=lossless&width=864&height=864" alt="Human or AI Logo" class="logo">
             <h1>Human or AI</h1>
             <p class="subtitle">TESTER APPLICATION</p>
         </header>
 
-        <form action="#" method="POST"> <!-- Update form action to your backend endpoint -->
+        <!-- THIS IS THE UPDATED LINE -->
+        <form action="https://formspree.io/f/mkgvpnze" method="POST">
             
             <div class="form-group">
                 <label for="roblox-username">1. What is your Roblox username?</label>
